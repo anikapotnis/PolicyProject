@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Teacher Shortage Crisis</title>
+    <title>Policy Brief: Addressing the Teacher Shortage Crisis</title>
     <style>
         * {
             margin: 0;
@@ -12,13 +12,14 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.8;
             color: #2c3e50;
+            background: #f8f9fa;
         }
 
         nav {
-            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            background: #1a252f;
             padding: 1rem 0;
             position: sticky;
             top: 0;
@@ -30,21 +31,23 @@
             list-style: none;
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            gap: 1.5rem;
             flex-wrap: wrap;
+            padding: 0 1rem;
         }
 
         nav a {
             color: white;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 500;
             padding: 0.5rem 1rem;
-            border-radius: 5px;
+            border-radius: 4px;
             transition: background 0.3s;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
         nav a:hover, nav a.active {
-            background: rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.15);
         }
 
         .page {
@@ -56,184 +59,262 @@
             display: block;
         }
 
-        .hero {
-            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+        .header-banner {
+            background: linear-gradient(135deg, #1a252f 0%, #2c3e50 100%);
             color: white;
-            padding: 6rem 2rem;
+            padding: 3rem 2rem 2rem 2rem;
             text-align: center;
+            border-bottom: 4px solid #3498db;
         }
 
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            animation: fadeInUp 0.8s;
+        .header-banner h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
         }
 
-        .hero p {
-            font-size: 1.3rem;
-            opacity: 0.95;
-            max-width: 800px;
-            margin: 0 auto;
-            animation: fadeInUp 0.8s 0.2s backwards;
+        .header-banner .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-style: italic;
         }
 
         .content {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 4rem 2rem;
+            padding: 3rem 2rem;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        .brief-section {
+            margin-bottom: 3rem;
+        }
+
+        .brief-section h2 {
+            color: #1a252f;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #3498db;
+        }
+
+        .brief-section h3 {
+            color: #2c3e50;
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .executive-summary {
+            background: #e8f4f8;
+            border-left: 5px solid #3498db;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            font-size: 1.05rem;
+        }
+
+        .data-dashboard {
+            background: #f8f9fa;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
         }
 
         .stat-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
         }
 
-        .stat-card {
+        .stat-box {
             background: white;
-            border-radius: 10px;
-            padding: 2rem;
+            border-radius: 8px;
+            padding: 1.5rem;
             text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             border-top: 4px solid #e74c3c;
         }
 
-        .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
-        }
-
         .stat-number {
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: bold;
             color: #e74c3c;
-            margin-bottom: 0.5rem;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
         .stat-label {
-            font-size: 1.1rem;
+            font-size: 0.95rem;
             color: #555;
-            font-weight: 600;
+            margin-top: 0.5rem;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
-        .card {
+        .chart-placeholder {
             background: white;
-            border-radius: 10px;
-            padding: 2.5rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border: 2px dashed #dee2e6;
+            border-radius: 8px;
+            padding: 3rem;
+            text-align: center;
+            margin: 1.5rem 0;
+            color: #6c757d;
         }
 
-        .card h2 {
+        .chart-placeholder p {
+            margin-bottom: 1rem;
+        }
+
+        .chart-placeholder code {
+            background: #f8f9fa;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .chart-container {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .chart-container h4 {
             color: #2c3e50;
             margin-bottom: 1rem;
-            font-size: 1.8rem;
-            border-left: 4px solid #3498db;
-            padding-left: 1rem;
+            text-align: center;
+            font-size: 1.1rem;
         }
 
-        .card h3 {
-            color: #3498db;
-            margin-top: 1.5rem;
+        .chart-canvas {
+            max-width: 100%;
+            height: 180px;
+        }
+
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        @media (max-width: 900px) {
+            .charts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .stakeholder-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .stakeholder-card {
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 1.5rem;
+            border-radius: 4px;
+        }
+
+        .stakeholder-card h4 {
+            color: #2c3e50;
             margin-bottom: 0.5rem;
         }
 
-        .card ul {
-            margin-left: 2rem;
-            margin-top: 1rem;
+        .policy-option {
+            background: white;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
         }
 
-        .card li {
-            margin-bottom: 0.8rem;
+        .policy-option h3 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+
+        .pros-cons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .pros, .cons {
+            padding: 1rem;
+            border-radius: 4px;
+        }
+
+        .pros {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+        }
+
+        .cons {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+        }
+
+        .pros h4, .cons h4 {
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .recommendation {
+            background: #d1ecf1;
+            border: 3px solid #0c5460;
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .recommendation h3 {
+            color: #0c5460;
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+
+        ul {
+            margin-left: 2rem;
+            margin-top: 0.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
         }
 
         .highlight-box {
             background: #fff3cd;
             border-left: 4px solid #ffc107;
-            padding: 1.5rem;
-            margin: 2rem 0;
-            border-radius: 5px;
-        }
-
-        .impact-section {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 10px;
-            margin: 2rem 0;
-        }
-
-        .action-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-
-        .action-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            border-top: 4px solid #27ae60;
-        }
-
-        .action-card h3 {
-            color: #27ae60;
-            margin-bottom: 1rem;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
-            color: white;
-            border: none;
-            padding: 1rem 2rem;
-            font-size: 1.1rem;
-            font-weight: 600;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-            transition: transform 0.2s;
-            margin-top: 1rem;
-        }
-
-        .cta-button:hover {
-            transform: scale(1.05);
+            padding: 1rem;
+            margin: 1.5rem 0;
         }
 
         footer {
-            background: #2c3e50;
+            background: #1a252f;
             color: white;
             text-align: center;
             padding: 2rem;
-            margin-top: 4rem;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            margin-top: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            nav ul {
-                gap: 0.5rem;
-                padding: 0 1rem;
+            .header-banner h1 {
+                font-size: 1.8rem;
             }
             
             .content {
                 padding: 2rem 1rem;
+            }
+
+            .pros-cons {
+                grid-template-columns: 1fr;
             }
 
             .stat-number {
@@ -245,205 +326,403 @@
 <body>
     <nav>
         <ul>
-            <li><a href="#crisis" class="nav-link active" data-page="crisis">The Crisis</a></li>
-            <li><a href="#causes" class="nav-link" data-page="causes">Root Causes</a></li>
-            <li><a href="#solutions" class="nav-link" data-page="solutions">Solutions</a></li>
+            <li><a href="#home" class="nav-link active" data-page="home">Executive Summary</a></li>
+            <li><a href="#background" class="nav-link" data-page="background">Background & Problem</a></li>
+            <li><a href="#options" class="nav-link" data-page="options">Policy Options</a></li>
+            <li><a href="#references" class="nav-link" data-page="references">References</a></li>
         </ul>
     </nav>
 
-    <div id="crisis" class="page active">
-        <div class="hero">
-            <h1>America's Teacher Shortage Crisis</h1>
-            <p>Our public schools are facing an unprecedented shortage of qualified teachers, threatening the future of millions of students</p>
+    <!-- HOME PAGE: Title, Executive Summary, and Analysis Dashboard -->
+    <div id="home" class="page active">
+        <div class="header-banner">
+            <h1>Addressing the Teacher Shortage Crisis in American Public Schools</h1>
+            <p class="subtitle">A Policy Brief on Retention, Recruitment, and Sustainable Solutions</p>
         </div>
         <div class="content">
-            <div class="stat-grid">
-                <div class="stat-card">
-                    <div class="stat-number">300K+</div>
-                    <div class="stat-label">Teacher & Staff Vacancies Nationwide</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">55%</div>
-                    <div class="stat-label">Of Teachers Considering Leaving Profession</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">36%</div>
-                    <div class="stat-label">Decline in Teacher Preparation Enrollment</div>
+            <div class="brief-section">
+                <h2>Executive Summary</h2>
+                <div class="executive-summary">
+                    <p>The United States faces an unprecedented teacher shortage crisis, with over 300,000 vacant teaching and staff positions nationwide. This shortage undermines educational quality, widens achievement gaps, and threatens economic competitiveness. Teachers are leaving the profession at alarming rates due to low compensation, challenging working conditions, and lack of professional respect. This brief examines the scope and causes of the crisis and recommends a comprehensive federal-state partnership approach that includes competitive compensation, improved working conditions, and robust support systems. Without immediate action, the shortage will intensify, harming millions of students and communities. The recommended policy requires substantial investment but offers significant returns in educational outcomes, economic growth, and social equity.</p>
                 </div>
             </div>
 
-            <div class="card">
-                <h2>The Reality of Today's Classrooms</h2>
-                <p>Schools across America are struggling to fill teaching positions, leading to overcrowded classrooms, unqualified substitutes, and in some cases, the cancellation of entire courses and programs.</p>
+            <div class="brief-section">
+                <h2>Analysis: Data Dashboard</h2>
+                <div class="data-dashboard">
+                    <h3>Key Statistics on the Teacher Shortage Crisis</h3>
+                    
+                    <div class="stat-grid">
+                        <div class="stat-box">
+                            <div class="stat-number">300K+</div>
+                            <div class="stat-label">Teacher & staff vacancies nationwide</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">55%</div>
+                            <div class="stat-label">Of teachers considering leaving profession</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">36%</div>
+                            <div class="stat-label">Decline in teacher preparation enrollment (2010-2020)</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">$66K</div>
+                            <div class="stat-label">Average teacher salary (2023-24)</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">-4.7%</div>
+                            <div class="stat-label">Change in real teacher wages (2010-2020)</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">8%</div>
+                            <div class="stat-label">Annual teacher turnover rate</div>
+                        </div>
+                    </div>
+
+                    <div id="csvCharts"></div>
+
+                    <div class="highlight-box">
+                        <strong>Data Sources:</strong> National Center for Education Statistics (NCES), U.S. Department of Education, Learning Policy Institute, National Education Association, state education departments, and academic research studies.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BACKGROUND PAGE -->
+    <div id="background" class="page">
+        <div class="header-banner">
+            <h1>Background & Problem Statement</h1>
+        </div>
+        <div class="content">
+            <div class="brief-section">
+                <h2>The Policy Issue</h2>
+                <p>American public schools are experiencing a severe teacher shortage that threatens the quality and equity of education nationwide. The shortage is not merely a cyclical staffing challenge but a systemic crisis driven by unsustainable working conditions, inadequate compensation, and declining professional respect for educators.</p>
                 
-                <div class="impact-section">
-                    <h3>How This Impacts Students:</h3>
+                <p>Schools across all 50 states report difficulty filling teaching positions, particularly in high-need subjects like special education, mathematics, science, and bilingual education. Rural and high-poverty urban districts face the most acute shortages. Many schools resort to hiring uncertified teachers, relying on long-term substitutes, increasing class sizes, or eliminating course offerings entirely.</p>
+
+                <h3>Urgency and Significance</h3>
+                <p>This crisis demands immediate policy intervention for several critical reasons:</p>
+                <ul>
+                    <li><strong>Educational Quality:</strong> Teacher quality is the single most important school-based factor in student achievement. Chronic vacancies and high turnover undermine learning and widen achievement gaps.</li>
+                    <li><strong>Economic Competitiveness:</strong> A well-educated workforce is essential for economic growth. The teacher shortage threatens America's ability to compete in the global economy.</li>
+                    <li><strong>Social Equity:</strong> Low-income students and students of color are disproportionately affected by teacher shortages, exacerbating existing inequalities.</li>
+                    <li><strong>Worsening Trajectory:</strong> Without intervention, the problem will intensify as baby boomer teachers retire and fewer young people enter the profession.</li>
+                </ul>
+
+                <h3>Key Data Points</h3>
+                <ul>
+                    <li>The U.S. faces an estimated shortage of 300,000 teachers and staff annually</li>
+                    <li>Teacher preparation program enrollment has declined 36% between 2010 and 2020</li>
+                    <li>55% of teachers report they are likely to leave the profession earlier than planned</li>
+                    <li>Teacher turnover costs school districts approximately $8 billion annually</li>
+                    <li>Real teacher wages have declined 4.7% over the past decade when adjusted for inflation</li>
+                    <li>Schools in high-poverty areas have teacher turnover rates 50% higher than in low-poverty schools</li>
+                </ul>
+            </div>
+
+            <div class="brief-section">
+                <h2>Key Stakeholders</h2>
+                <div class="stakeholder-grid">
+                    <div class="stakeholder-card">
+                        <h4>Federal Government</h4>
+                        <p>U.S. Department of Education, Congress - responsible for federal education funding, student loan programs, and national education policy</p>
+                    </div>
+                    <div class="stakeholder-card">
+                        <h4>State Governments</h4>
+                        <p>State education departments, governors, legislatures - control teacher certification, state funding formulas, and working condition regulations</p>
+                    </div>
+                    <div class="stakeholder-card">
+                        <h4>School Districts</h4>
+                        <p>Superintendents, school boards, principals - directly hire teachers, set local policies, and manage budgets</p>
+                    </div>
+                    <div class="stakeholder-card">
+                        <h4>Teachers & Unions</h4>
+                        <p>Current and prospective teachers, education unions (NEA, AFT) - advocate for improved conditions and have direct experience with challenges</p>
+                    </div>
+                    <div class="stakeholder-card">
+                        <h4>Students & Families</h4>
+                        <p>Public school students and parents - directly affected by teacher shortages and quality of instruction</p>
+                    </div>
+                    <div class="stakeholder-card">
+                        <h4>Higher Education</h4>
+                        <p>Teacher preparation programs, colleges of education - responsible for training and certifying new teachers</p>
+                    </div>
+                    <div class="stakeholder-card">
+                        <h4>Business Community</h4>
+                        <p>Employers, chambers of commerce - depend on well-educated workforce and have economic interest in quality education</p>
+                    </div>
+                    <div class="stakeholder-card">
+                        <h4>Advocacy Organizations</h4>
+                        <p>Education policy groups, research institutes - conduct research and advocate for policy solutions</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="brief-section">
+                <h2>Root Causes of the Crisis</h2>
+                
+                <h3>1. Inadequate Compensation</h3>
+                <p>Teachers earn 23% less than similarly educated professionals. The average teacher salary of $66,000 (2023-24) has not kept pace with inflation or cost of living increases, making teaching financially unsustainable for many, especially those with student loan debt.</p>
+
+                <h3>2. Challenging Working Conditions</h3>
+                <p>Teachers face overwhelming workloads extending far beyond school hours, large class sizes, limited planning time, lack of administrative support, and insufficient resources. Many spend their own money on classroom supplies.</p>
+
+                <h3>3. Lack of Professional Respect and Autonomy</h3>
+                <p>Teachers report feeling undervalued and micromanaged, with limited input in curriculum decisions, increasing political attacks on educators, rigid standardized testing requirements, and declining societal appreciation for the profession.</p>
+
+                <h3>4. Pandemic Acceleration</h3>
+                <p>COVID-19 intensified existing problems through health and safety concerns, burnout from managing hybrid learning, increased confrontations over protocols, and heightened mental health challenges for both teachers and students.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- POLICY OPTIONS PAGE -->
+    <div id="options" class="page">
+        <div class="header-banner">
+            <h1>Policy Options & Recommendation</h1>
+        </div>
+        <div class="content">
+            <div class="brief-section">
+                <h2>Policy Options for Addressing the Teacher Shortage</h2>
+                <p>Three evidence-based policy approaches are evaluated below based on feasibility, cost-effectiveness, and potential impact.</p>
+
+                <div class="policy-option">
+                    <h3>Option 1: Federal Teacher Corps and Loan Forgiveness Program</h3>
+                    <p><strong>Description:</strong> Create a national Teacher Corps program offering full student loan forgiveness and a $10,000 annual bonus for teachers who commit to teaching in high-need schools for five years. Provide federal funding for teacher residency programs that offer yearlong mentored apprenticeships with stipends.</p>
+                    
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <h4>✓ Strengths</h4>
+                            <ul>
+                                <li>Direct financial incentive attracts new teachers</li>
+                                <li>Targets high-need areas specifically</li>
+                                <li>Proven success with similar programs (e.g., Teach for America, NHSC)</li>
+                                <li>Can be implemented quickly through executive action or legislation</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <h4>✗ Limitations</h4>
+                            <ul>
+                                <li>Doesn't address retention of existing teachers</li>
+                                <li>May not fix underlying systemic issues</li>
+                                <li>Requires significant federal funding ($5-8 billion annually)</li>
+                                <li>Service requirements may deter some candidates</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="policy-option">
+                    <h3>Option 2: State-Level Salary Enhancement and Working Condition Mandates</h3>
+                    <p><strong>Description:</strong> Require states to raise minimum teacher salaries to $60,000 (adjusted by region) with regular cost-of-living increases. Mandate maximum class sizes, guaranteed planning time, and funding for classroom resources. Provide matching federal grants to states that meet these standards.</p>
+                    
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <h4>✓ Strengths</h4>
+                            <ul>
+                                <li>Addresses core retention issues directly</li>
+                                <li>Improves conditions for all teachers</li>
+                                <li>Creates sustainable, systemic change</li>
+                                <li>Federal-state partnership distributes costs</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <h4>✗ Limitations</h4>
+                            <ul>
+                                <li>Very expensive ($20-30 billion annually)</li>
+                                <li>May face state resistance and legal challenges</li>
+                                <li>Implementation timeline could be lengthy</li>
+                                <li>Requires significant state budget reallocations</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="policy-option">
+                    <h3>Option 3: Comprehensive Federal-State Partnership Approach</h3>
+                    <p><strong>Description:</strong> Combine elements of both approaches: federal competitive grants to states that commit to raising teacher salaries and improving working conditions, plus targeted loan forgiveness and bonuses for high-need areas. Include funding for teacher preparation programs, mentoring, and professional development. Establish Teacher Quality Innovation Zones allowing states to pilot new approaches.</p>
+                    
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <h4>✓ Strengths</h4>
+                            <ul>
+                                <li>Addresses both recruitment and retention</li>
+                                <li>Combines immediate and long-term solutions</li>
+                                <li>Encourages state innovation while setting standards</li>
+                                <li>Politically feasible through competitive grants</li>
+                                <li>Builds on successful models (e.g., Race to the Top)</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <h4>✗ Limitations</h4>
+                            <ul>
+                                <li>Complex to implement and coordinate</li>
+                                <li>Expensive ($15-20 billion annually)</li>
+                                <li>Competitive grants may create inequities</li>
+                                <li>Requires buy-in from multiple levels of government</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="brief-section">
+                <div class="recommendation">
+                    <h3>⭐ Recommended Policy: Option 3 - Comprehensive Federal-State Partnership</h3>
+                    <p><strong>This policy brief recommends adopting Option 3, the Comprehensive Federal-State Partnership Approach, as it offers the most balanced and effective solution to the teacher shortage crisis.</strong></p>
+                    
+                    <h4 style="margin-top: 1.5rem;">Why This Option Is Best:</h4>
                     <ul>
-                        <li><strong>Larger class sizes</strong> - Less individual attention and support</li>
-                        <li><strong>Inconsistent instruction</strong> - Frequent substitute teachers disrupt learning</li>
-                        <li><strong>Limited course offerings</strong> - Schools cutting arts, languages, and advanced courses</li>
-                        <li><strong>Achievement gaps widening</strong> - Disadvantaged students suffer most from instability</li>
-                        <li><strong>Teacher burnout</strong> - Remaining teachers stretched thin, reducing quality of education</li>
+                        <li><strong>Addresses Root Causes:</strong> Unlike Option 1, this approach tackles both recruitment AND retention by improving compensation and working conditions systematically</li>
+                        <li><strong>Politically Feasible:</strong> More achievable than Option 2's mandates; competitive grants incentivize state participation without legal battles</li>
+                        <li><strong>Flexible and Innovative:</strong> Allows states to tailor solutions to local needs while meeting federal quality standards</li>
+                        <li><strong>Evidence-Based:</strong> Builds on successful federal-state education partnerships like Race to the Top and Teacher Incentive Fund</li>
+                        <li><strong>Cost-Effective:</strong> Though expensive, it's less costly than Option 2 while more comprehensive than Option 1</li>
+                    </ul>
+
+                    <h4 style="margin-top: 1.5rem;">Implementation Steps:</h4>
+                    <ol>
+                        <li><strong>Year 1:</strong> Congress authorizes $15 billion for Teacher Quality Partnership Grants and establishes program guidelines</li>
+                        <li><strong>Year 2:</strong> States submit proposals demonstrating commitment to salary increases, class size reduction, and support systems</li>
+                        <li><strong>Years 3-7:</strong> Grant recipients implement programs with federal technical assistance and monitoring</li>
+                        <li><strong>Ongoing:</strong> Annual evaluation and refinement based on data; successful state models disseminated nationally</li>
+                    </ol>
+
+                    <h4 style="margin-top: 1.5rem;">Expected Outcomes:</h4>
+                    <ul>
+                        <li>Reduce teacher vacancies by 40% within five years</li>
+                        <li>Increase teacher retention rates by 25%</li>
+                        <li>Boost enrollment in teacher preparation programs by 30%</li>
+                        <li>Improve student achievement, particularly in high-need schools</li>
+                        <li>Restore teaching as a respected, sustainable profession</li>
                     </ul>
                 </div>
-            </div>
 
-            <div class="card">
-                <h2>Where the Shortages Hit Hardest</h2>
-                <p>While the crisis affects schools nationwide, certain areas and subjects face particularly acute shortages:</p>
-                <ul>
-                    <li><strong>Subject Areas:</strong> Special education, math, science, bilingual education, and career/technical education</li>
-                    <li><strong>Geographic Areas:</strong> Rural communities and high-poverty urban districts</li>
-                    <li><strong>Grade Levels:</strong> Early childhood education and high school specialized courses</li>
-                </ul>
-            </div>
-
-            <div class="highlight-box">
-                <strong>Did You Know?</strong> Some districts are recruiting teachers from other countries, hiring long-term substitutes without credentials, and even asking administrators to return to the classroom just to keep schools running.
+                <div class="highlight-box">
+                    <strong>Call to Action:</strong> The teacher shortage crisis threatens America's future. Federal policymakers must act now to pass comprehensive teacher quality legislation that invests in both recruitment and retention. States must commit to making teaching a financially viable and professionally rewarding career. The cost of action is substantial, but the cost of inaction—in lost educational opportunities and economic competitiveness—is far greater.
+                </div>
             </div>
         </div>
     </div>
 
-    <div id="causes" class="page">
-        <div class="hero">
-            <h1>Understanding the Root Causes</h1>
-            <p>The teacher shortage isn't just one problem—it's a perfect storm of interconnected challenges</p>
+    <!-- REFERENCES PAGE -->
+    <div id="references" class="page">
+        <div class="header-banner">
+            <h1>References</h1>
         </div>
         <div class="content">
-            <div class="card">
-                <h2>Low Compensation & Financial Strain</h2>
-                <p>Teachers earn significantly less than other professionals with similar education levels, making it difficult to attract and retain talented individuals.</p>
-                <ul>
-                    <li>Average teacher salary has decreased by 4.7% over the past decade when adjusted for inflation</li>
-                    <li>Many teachers work second jobs to make ends meet</li>
-                    <li>High student loan debt makes teaching financially unsustainable for many graduates</li>
-                    <li>Pay gaps are even wider in high-cost-of-living areas</li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <h2>Challenging Working Conditions</h2>
-                <p>The demands of teaching have intensified while support and resources have diminished:</p>
-                <ul>
-                    <li><strong>Overwhelming workload:</strong> Grading, lesson planning, meetings, and administrative tasks extend far beyond school hours</li>
-                    <li><strong>Large class sizes:</strong> Making individualized instruction nearly impossible</li>
-                    <li><strong>Lack of resources:</strong> Teachers often spend their own money on classroom supplies</li>
-                    <li><strong>Limited support:</strong> Insufficient access to counselors, social workers, and special education staff</li>
-                    <li><strong>Student behavior challenges:</strong> Increased mental health needs without adequate support systems</li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <h2>Lack of Professional Respect & Autonomy</h2>
-                <p>Teachers report feeling undervalued and micromanaged:</p>
-                <ul>
-                    <li>Limited input in curriculum and policy decisions</li>
-                    <li>Increasing political attacks on teachers and public education</li>
-                    <li>Rigid standardized testing requirements limiting creativity</li>
-                    <li>Public criticism and lack of societal appreciation for the profession</li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <h2>The Pandemic's Lasting Impact</h2>
-                <p>COVID-19 accelerated departures and discouraged new entrants to the profession:</p>
-                <ul>
-                    <li>Health and safety concerns in crowded indoor spaces</li>
-                    <li>Burnout from managing hybrid and remote learning</li>
-                    <li>Increased confrontations over safety protocols and curriculum</li>
-                    <li>Trauma and mental health challenges for both students and teachers</li>
-                </ul>
-            </div>
-
-            <div class="highlight-box">
-                <strong>The Exodus:</strong> Teachers are leaving at higher rates than ever before—not just retiring, but leaving mid-career for other professions that offer better pay, working conditions, and respect.
-            </div>
-        </div>
-    </div>
-
-    <div id="solutions" class="page">
-        <div class="hero">
-            <h1>Solutions: Investing in Teachers & Students</h1>
-            <p>The crisis is solvable, but it requires commitment, resources, and political will</p>
-        </div>
-        <div class="content">
-            <div class="action-grid">
-                <div class="action-card">
-                    <h3>💰 Competitive Compensation</h3>
-                    <p>Raise teacher salaries to competitive levels with other professions requiring similar education and expertise. Provide housing assistance in high-cost areas and student loan forgiveness programs.</p>
-                </div>
-                <div class="action-card">
-                    <h3>🎓 Better Preparation & Support</h3>
-                    <p>Fund robust teacher preparation programs, provide high-quality mentoring for new teachers, and offer ongoing professional development opportunities.</p>
-                </div>
-                <div class="action-card">
-                    <h3>🏫 Improved Working Conditions</h3>
-                    <p>Reduce class sizes, provide planning time, hire support staff, and ensure adequate classroom resources without teachers having to pay out of pocket.</p>
-                </div>
-                <div class="action-card">
-                    <h3>🤝 Professional Respect</h3>
-                    <p>Give teachers voice in educational decisions, protect against political attacks, and rebuild societal appreciation for the teaching profession.</p>
-                </div>
-                <div class="action-card">
-                    <h3>🌱 Career Pathways</h3>
-                    <p>Create opportunities for advancement and leadership without leaving the classroom. Establish teacher residency programs and alternative certification pathways.</p>
-                </div>
-                <div class="action-card">
-                    <h3>❤️ Mental Health Support</h3>
-                    <p>Provide robust mental health resources for both teachers and students. Hire more counselors, social workers, and support staff to share the burden.</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <h2>What You Can Do</h2>
-                <p>Everyone has a role to play in addressing the teacher shortage crisis:</p>
+            <div class="brief-section">
+                <h2>Academic & Research Sources</h2>
                 
-                <h3>For Policymakers:</h3>
-                <ul>
-                    <li>Increase education funding at state and federal levels</li>
-                    <li>Pass legislation to raise teacher salaries and improve benefits</li>
-                    <li>Invest in affordable teacher housing and student loan forgiveness</li>
-                    <li>Reduce bureaucratic burdens and high-stakes testing requirements</li>
-                </ul>
+                <p style="margin-bottom: 1rem; padding-left: 2rem; text-indent: -2rem;">
+                    Carver-Thomas, D., & Darling-Hammond, L. (2017). <em>Teacher turnover: Why it matters and what we can do about it.</em> Learning Policy Institute. https://learningpolicyinstitute.org/product/teacher-turnover-report
+                </p>
 
-                <h3>For School Districts:</h3>
-                <ul>
-                    <li>Prioritize teacher retention alongside recruitment</li>
-                    <li>Create positive school cultures that value teacher input</li>
-                    <li>Provide resources and reduce non-teaching responsibilities</li>
-                    <li>Offer competitive salaries and comprehensive benefits</li>
-                </ul>
+                <p style="margin-bottom: 1rem; padding-left: 2rem; text-indent: -2rem;">
+                    Diliberti, M. K., & Schwartz, H. L. (2023). <em>Educator turnover has markedly increased, but districts have taken actions to boost teacher ranks: Selected findings from the sixth American School District Panel survey</em> (Research Report RR-A956-14). RAND Corporation. https://www.rand.org/pubs/research_reports/RRA956-14.html
+                </p>
 
-                <h3>For Communities:</h3>
-                <ul>
-                    <li>Vote for school funding measures and support education budgets</li>
-                    <li>Attend school board meetings and advocate for teachers</li>
-                    <li>Thank teachers and show appreciation for their work</li>
-                    <li>Volunteer in schools and support classroom needs</li>
-                    <li>Speak up against attacks on teachers and public education</li>
-                </ul>
+                <p style="margin-bottom: 1rem; padding-left: 2rem; text-indent: -2rem;">
+                    Education Resource Strategies. (2024). <em>Examining school-level teacher turnover trends (2021-24): A new angle on a pervasive issue.</em> https://www.erstrategies.org/tap/teacher-turnover-trends-analysis/
+                </p>
 
-                <h3>For Individuals:</h3>
-                <ul>
-                    <li>Consider teaching as a career and encourage others to do so</li>
-                    <li>Support teachers in your life and community</li>
-                    <li>Stay informed about education policy issues</li>
-                    <li>Share stories that highlight the importance of teaching</li>
-                </ul>
-            </div>
+                <p style="margin-bottom: 1rem; padding-left: 2rem; text-indent: -2rem;">
+                    Nguyen, T. D., Lam, C. B., & Bruno, P. (2024). What do we know about the extent of teacher shortages nationwide? A systematic examination of reports of U.S. teacher shortages. <em>AERA Open, 10</em>, 23328584241276512. https://doi.org/10.1177/23328584241276512
+                </p>
 
-            <div class="highlight-box">
-                <strong>The Bottom Line:</strong> We get the education system we're willing to invest in. Quality teachers are the foundation of student success, economic prosperity, and a thriving democracy. The time to act is now.
-            </div>
+                <h2 style="margin-top: 2rem;">Government & Federal Sources</h2>
 
-            <div style="text-align: center; margin-top: 3rem;">
-                <a href="#crisis" class="cta-button nav-link" data-page="crisis">Learn More About the Crisis</a>
+                <p style="margin-bottom: 1rem; padding-left: 2rem; text-indent: -2rem;">
+                    National Center for Education Statistics. (2023). <em>Press release: Eight percent of public school teachers left teaching in 2021, a rate unchanged since last measured in 2012.</em> U.S. Department of Education. https://nces.ed.gov/whatsnew/press_releases/12_13_2023.asp
+                </p>
+
+                <p style="margin-bottom: 1rem; padding-left: 2rem; text-indent: -2rem;">
+                    National Center for Education Statistics. (2024a). <em>Teacher attrition and mobility: Results from the 2021-22 Teacher Follow-up Survey to the National Teacher and Principal Survey</em> (NCES 2024-039). U.S. Department of Education. https://nces.ed.gov/pubs2024/2024039M.pdf
+                </p>
+
+                <p style="margin-bottom: 1rem; padding-left: 2rem; text-indent: -2rem;">
+                    National Center for Education Statistics. (2024b). <em>Teacher turnover: Stayers, movers, and leavers.</em> U.S. Department of Education. https://nces.ed.gov/programs/coe/indicator/slc/teacher-turnover
+                </p>
+
+                <p style="margin-bottom: 1rem; padding-left: 2rem; text-indent: -2rem;">
+                    National Center for Education Statistics. (2024c). <em>Press release: Most U.S. public elementary and secondary schools faced hiring challenges for the start of the 2024-25 academic year.</em> U.S. Department of Education. https://nces.ed.gov/whatsnew/press_releases/10_17_2024.asp
+                </p>
+
+                <p style="margin-bottom: 1rem; padding-left: 2rem; text-indent: -2rem;">
+                    U.S. Department of Education. (2024). <em>National teacher shortage areas.</em> https://tsa.ed.gov/
+                </p>
+
+                <h2 style="margin-top: 2rem;">Education Organizations & Advocacy Groups</h2>
+
+                <p style="margin-bottom: 1rem; padding-left: 2rem; text-indent: -2rem;">
+                    National Education Association. (2025). <em>Educator pay data 2025.</em> https://www.nea.org/resource-library/educator-pay-and-student-spending-how-does-your-state-rank
+                </p>
+
+                <p style="margin-bottom: 1rem; padding-left: 2rem; text-indent: -2rem;">
+                    National Center for Teacher Residencies. (2025). Educator pay: The good, the bad, and the ugly. https://nctr.org/educator-pay-the-good-the-bad-and-the-ugly/
+                </p>
+
+                <p style="margin-bottom: 1rem; padding-left: 2rem; text-indent: -2rem;">
+                    Tan, T. S., Arellano, I., & Patrick, S. K. (2024). <em>State teacher shortages 2024 update: Teaching positions left vacant or filled by teachers without full certification.</em> Learning Policy Institute. https://learningpolicyinstitute.org/product/state-teacher-shortages-vacancy-2024
+                </p>
+
+                <h2 style="margin-top: 2rem;">State & Regional Sources</h2>
+
+                <p style="margin-bottom: 1rem; padding-left: 2rem; text-indent: -2rem;">
+                    Colorado Department of Education. (2025). <em>Colorado's educator shortage survey results.</em> https://www.cde.state.co.us/educatortalent/edshortage-surveyresults
+                </p>
+
+                <p style="margin-bottom: 1rem; padding-left: 2rem; text-indent: -2rem;">
+                    National Conference of State Legislatures. (2024). <em>Teacher shortage areas by state.</em> https://www.ncsl.org/education/teacher-shortage-areas-by-state
+                </p>
+
+                <h2 style="margin-top: 2rem;">Data & Statistics Sources</h2>
+
+                <p style="margin-bottom: 1rem; padding-left: 2rem; text-indent: -2rem;">
+                    Nguyen, T. D., & Lam, C. B. (2024). <em>US teacher shortage</em> [Database]. https://www.teachershortages.com/
+                </p>
+
+                <p style="margin-bottom: 1rem; padding-left: 2rem; text-indent: -2rem;">
+                    USAFacts. (2025). How much do teachers get paid in the US? https://usafacts.org/answers/how-much-do-teachers-get-paid-in-the-us/country/united-states/
+                </p>
+
+                <p style="margin-bottom: 1rem; padding-left: 2rem; text-indent: -2rem;">
+                    World Population Review. (2024). <em>Teacher pay by state 2025.</em> https://worldpopulationreview.com/state-rankings/teacher-pay-by-state
+                </p>
+
+                <h2 style="margin-top: 2rem;">Additional Resources</h2>
+
+                <p style="margin-bottom: 1rem; padding-left: 2rem; text-indent: -2rem;">
+                    Cleaver, S. (2024, June 12). 2024 average teacher salary: What are the top-paying states? <em>We Are Teachers.</em> https://www.weareteachers.com/average-teacher-salary/
+                </p>
+
+                <p style="margin-bottom: 1rem; padding-left: 2rem; text-indent: -2rem;">
+                    Devlin Peck. (2024). <em>15 teacher shortage statistics (2025).</em> https://www.devlinpeck.com/content/teacher-shortage-statistics
+                </p>
+
+                <p style="margin-bottom: 1rem; padding-left: 2rem; text-indent: -2rem;">
+                    EdWeek. (2023, December 21). What will teacher shortages look like in 2024 and beyond? A researcher weighs in. https://www.edweek.org/leadership/what-will-teacher-shortages-look-like-in-2024-and-beyond-a-researcher-weighs-in/2023/12
+                </p>
+
+                <p style="margin-bottom: 1rem; padding-left: 2rem; text-indent: -2rem;">
+                    RAND Corporation. (2025). <em>Will educator turnover rates ever return to pre-pandemic levels?</em> https://www.rand.org/pubs/research_reports/RRA956-29.html
+                </p>
+
+                <p style="margin-bottom: 1rem; padding-left: 2rem; text-indent: -2rem;">
+                    Wing Institute. (n.d.). <em>Teacher turnover impact.</em> https://www.winginstitute.org/teacher-retention-turnover
+                </p>
+
+                <div style="margin-top: 3rem; padding: 1.5rem; background: #f8f9fa; border-left: 4px solid #3498db; border-radius: 4px;">
+                    <h3 style="margin-top: 0;">Note on Data Sources</h3>
+                    <p>This policy brief draws upon multiple credible sources including federal government statistics (NCES, U.S. Department of Education), peer-reviewed academic research, reports from respected education policy organizations (Learning Policy Institute, RAND Corporation), and data from major education associations (National Education Association). All statistics and claims are supported by the cited sources above.</p>
+                </div>
             </div>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2024 Teacher Shortage Awareness Initiative | Together we can ensure every student has access to qualified, supported teachers</p>
+        <p>&copy; 2024 Teacher Shortage Policy Brief | For educational and advocacy purposes</p>
     </footer>
 
     <script>
@@ -464,6 +743,258 @@
                 window.scrollTo({top: 0, behavior: 'smooth'});
             });
         });
+
+        // Load and visualize CSV data
+        async function loadCSVData() {
+            try {
+                // CSV data embedded directly
+                const csvData = `State,Percentage
+Alabama,2.09
+Alaska,9.08
+Arizona,2.79
+Arkansas,1.77
+California,1.24
+Colorado,3.97
+Connecticut,0.31
+Delaware,1.61
+Florida,0.36
+Georgia,1.48
+Hawaii,2.00
+Idaho,2.44
+Illinois,0.86
+Indiana,2.16
+Iowa,1.65
+Kansas,1.92
+Kentucky,1.06
+Louisiana,2.78
+Maine,2.64
+Maryland,0.99
+Massachusetts,0.74
+Michigan,1.42
+Minnesota,1.99
+Mississippi,2.05
+Missouri,2.92
+Montana,3.42
+Nebraska,0.54
+Nevada,2.04
+New Hampshire,1.49
+New Jersey,0.73
+New Mexico,4.21
+New York,1.11
+North Carolina,2.50
+North Dakota,4.85
+Ohio,0.78
+Oklahoma,5.77
+Oregon,3.29
+Pennsylvania,0.46
+Rhode Island,1.52
+South Carolina,1.99
+South Dakota,3.97
+Tennessee,1.46
+Texas,1.15
+Utah,2.45
+Vermont,3.15
+Virginia,1.26
+Washington,0.70
+West Virginia,1.98
+Wisconsin,1.56
+Wyoming,5.49`;
+
+                const rows = csvData.trim().split('\n');
+                const headers = rows[0].split(',');
+                const data = rows.slice(1).map(row => {
+                    const values = row.split(',');
+                    return {
+                        state: values[0],
+                        percentage: parseFloat(values[1])
+                    };
+                });
+
+                // Sort data by percentage for better visualization
+                data.sort((a, b) => b.percentage - a.percentage);
+
+                createCharts(data);
+            } catch (error) {
+                console.error('Error loading CSV data:', error);
+            }
+        }
+
+        function createCharts(data) {
+            const container = document.getElementById('csvCharts');
+            
+            // Top 10 states with highest shortage
+            const top10 = data.slice(0, 10);
+            
+            container.innerHTML = `
+                <div class="charts-grid">
+                    <div class="chart-container">
+                        <h4>Top 10 States with Highest Shortage Rates</h4>
+                        <canvas id="top10Chart" class="chart-canvas"></canvas>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <h4>Shortage Distribution Across States</h4>
+                        <canvas id="distributionChart" class="chart-canvas"></canvas>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <h4>Regional Comparison</h4>
+                        <canvas id="regionalChart" class="chart-canvas"></canvas>
+                    </div>
+                </div>
+            `;
+
+            // Top 10 Bar Chart
+            const ctx1 = document.getElementById('top10Chart').getContext('2d');
+            new Chart(ctx1, {
+                type: 'bar',
+                data: {
+                    labels: top10.map(d => d.state),
+                    datasets: [{
+                        label: 'Teacher Shortage Rate (%)',
+                        data: top10.map(d => d.percentage),
+                        backgroundColor: 'rgba(231, 76, 60, 0.8)',
+                        borderColor: 'rgba(231, 76, 60, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Shortage Rate (%)'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Distribution Histogram
+            const ranges = ['0-1%', '1-2%', '2-3%', '3-4%', '4-5%', '5%+'];
+            const counts = [0, 0, 0, 0, 0, 0];
+            
+            data.forEach(d => {
+                const p = d.percentage;
+                if (p < 1) counts[0]++;
+                else if (p < 2) counts[1]++;
+                else if (p < 3) counts[2]++;
+                else if (p < 4) counts[3]++;
+                else if (p < 5) counts[4]++;
+                else counts[5]++;
+            });
+
+            const ctx2 = document.getElementById('distributionChart').getContext('2d');
+            new Chart(ctx2, {
+                type: 'bar',
+                data: {
+                    labels: ranges,
+                    datasets: [{
+                        label: 'Number of States',
+                        data: counts,
+                        backgroundColor: 'rgba(52, 152, 219, 0.8)',
+                        borderColor: 'rgba(52, 152, 219, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                stepSize: 5
+                            },
+                            title: {
+                                display: true,
+                                text: 'Number of States'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Shortage Rate Range'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Regional averages (simplified grouping)
+            const regions = {
+                'Northeast': ['Connecticut', 'Maine', 'Massachusetts', 'New Hampshire', 'New Jersey', 'New York', 'Pennsylvania', 'Rhode Island', 'Vermont'],
+                'South': ['Alabama', 'Arkansas', 'Delaware', 'Florida', 'Georgia', 'Kentucky', 'Louisiana', 'Maryland', 'Mississippi', 'North Carolina', 'Oklahoma', 'South Carolina', 'Tennessee', 'Texas', 'Virginia', 'West Virginia'],
+                'Midwest': ['Illinois', 'Indiana', 'Iowa', 'Kansas', 'Michigan', 'Minnesota', 'Missouri', 'Nebraska', 'North Dakota', 'Ohio', 'South Dakota', 'Wisconsin'],
+                'West': ['Alaska', 'Arizona', 'California', 'Colorado', 'Hawaii', 'Idaho', 'Montana', 'Nevada', 'New Mexico', 'Oregon', 'Utah', 'Washington', 'Wyoming']
+            };
+
+            const regionalAvg = {};
+            for (const [region, states] of Object.entries(regions)) {
+                const stateData = data.filter(d => states.includes(d.state));
+                regionalAvg[region] = stateData.reduce((sum, d) => sum + d.percentage, 0) / stateData.length;
+            }
+
+            const ctx3 = document.getElementById('regionalChart').getContext('2d');
+            new Chart(ctx3, {
+                type: 'bar',
+                data: {
+                    labels: Object.keys(regionalAvg),
+                    datasets: [{
+                        label: 'Average Shortage Rate (%)',
+                        data: Object.values(regionalAvg),
+                        backgroundColor: [
+                            'rgba(46, 204, 113, 0.8)',
+                            'rgba(241, 196, 15, 0.8)',
+                            'rgba(155, 89, 182, 0.8)',
+                            'rgba(52, 152, 219, 0.8)'
+                        ],
+                        borderColor: [
+                            'rgba(46, 204, 113, 1)',
+                            'rgba(241, 196, 15, 1)',
+                            'rgba(155, 89, 182, 1)',
+                            'rgba(52, 152, 219, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Average Shortage Rate (%)'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Load charts when page loads
+        window.addEventListener('DOMContentLoaded', loadCSVData);
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
 </body>
 </html>
